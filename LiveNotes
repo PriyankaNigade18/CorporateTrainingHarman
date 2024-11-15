@@ -1,0 +1,201 @@
+
+
+
+
+
+Maven
+==================
+
+Selenium WebDriver
+===========================
+Selenium WebDriver it is an interface/API for WebUI automation Test
+
+Project setup
+==================
+1.In Java project
+-----------------------
+1.create a java project
+2.Download jar from selenium.dev
+3.right click on project-->Build path--->Configure build path-->libraries
+-->classPath--->add external Jar
+
+2.Maven project
+========================
+Maven is build and project management tool
+
+POM.xml
+=============
+Project Object Model this in  configuration file for project
+
+	1.Dependencies
+	2.plugins
+	
+	
+Maven Support two Repository
+===============================
+1.Local Repository
+user/m2 floder
+
+2.Remote/central repository
+mvnrepository.com
+
+=====================================================================
+TestCase: validate title of Google application 
+step1: open application
+step2: get the actual title 
+step3: validate actual with expected
+step4: display the result
+step5: close the app
+
+============================================
+Selenium Exception
+=======================
+1.InvalidArgumentException: invalid argument
+For wrong url address (protocol)
+
+WebDriver Browser Commands
+===========================
+1.get()
+2.getTitle()
+3.getCurrentUrl()
+4.getPageSource()
+5.close()- close current open window
+6.quit()- close all open windows by selenium
+7.getWindowHandle()
+8.getWindowHandles()
+
+
+Navigation Commands
+==========================
+Selenium Provides Navigation interface
+
+1.to(url)
+==============
+driver.navigate().to(url)
+
+2.back()
+==============
+driver.navigate().back()
+
+3.forward()
+===============
+driver.navigate().forward()
+
+4.refresh()
+================
+driver.navigate().refresh()
+
+=====================================================
+How to automate any WebElement
+=================================
+What is WebElement
+====================
+Every GUI element is WebElement
+Technically Selenium Provides WebElement as interface
+
+1.Identify Webelement
+2.Perform action on that WebElement
+
+Selenium Identify Webelement using Locator
+==============================================
+What is Locator?
+=============
+Locator is address of WebElement from webpage
+
+Selenium Support total 8 locators
+====================================
+1.By id(primary)
+2.By name
+3.By className
+4.By linkText
+5.By partialLinkText
+6.By tagName
+
+Dynamic Locators
+-------------------
+7.By cssSelector
+8.By xpath
+
+
+Step: 
+Get the address of element using locator and use selenium method to identifyit
+
+Identifiaction
+==============================
+1.findElement()
+-----------------
+- findElement will identify one single webelement
+
+2.findElements()
+---------------------
+- findElements() will identify multiple webElements
+
+
+WebElement validation commands
+===============================
+1.isDisplayed()
+2.isEnabled()
+3.isSelected()
+
+
+Actions on Webelement
+===========================
+1.textbox,searchbox---->enter the data---->sendKeys("data",Keys.KeyboardKey)
+2.button,link,checkbox,radio button--->click--->click()
+3.Clear the text---->clear()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
