@@ -125,6 +125,8 @@ Identifiaction
 1.findElement()
 -----------------
 - findElement will identify one single webelement
+- findElement() returns WebElement interface object
+- findElement() fail to identify any WebElement you will exception: NoSuchElementException
 
 2.findElements()
 ---------------------
@@ -143,6 +145,441 @@ Actions on Webelement
 1.textbox,searchbox---->enter the data---->sendKeys("data",Keys.KeyboardKey)
 2.button,link,checkbox,radio button--->click--->click()
 3.Clear the text---->clear()
+
+
+How to automate Link/Hyperlink?
+========================================
+<a href="url">text</a> 
+<a id="SignIn" href="login.html">Sign In</a>
+                                 link text
+1.linkText(Full link text)
+--------------------------
+driver.findElement(By.linkText("Sign In"))
+
+2.partialLinkText(partial link text)
+----------------------------------------
+driver.findElement(By.partialLinkText("In"))
+
+
+=====================================================
+
+ClassName
+================
+<button id="submit-id" class="btn btn-default btn-primary">Submit</button>
+
+class="btn btn-default btn-primary"
+		c1    c2          c3
+		
+InvalidSelectorException: Compound class names not permitted
+
+===============================================
+Selenium Wait
+=====================
+If there is time mapping issue between application and tool then it is called 
+Synchronization issue
+
+Selenium support Dynamic Wait
+==================================
+Wait is interface in selenium
+
+1.Implicit
+===================
+- It is global wait
+- As it applicable to every element
+
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+
+2.Explicit
+=====================
+- It is applicable to single webelement as per condition
+
+We can implement
+================
+1.WebDriverWait class
+2.FluentWait class
+
+
+WebDriverWait(c) extends FluentWait(c) implements Wait(I)
+================================================================
+tagName locator
+===================
+
+Number of Input boxes
+Number of links
+Number of images
+
+
+WebElement commands
+=========================
+1.getText()
+------------------
+- any visible text from application you can fetch using getText()
+- any html inner text also we can fetch using getText()
+
+
+2.getAttribute(attribute)
+----------------------------------
+It returns value property for that attribute
+
+Assignment1: Get all the links from Naukari page
+
+
+Dynamic locators
+=========================
+7. By cssSelector
+=====================
+cssSelector is locator to locate the elements based on element css properties.
+
+css is cascaded style sheet is a language used to provide some style to the webelement
+
+CssSelector is faster than xpath- as it travels from parent element to child element
+
+1.tagname with id
+--------------------
+Syntax:
+============
+tagname#id
+
+id="input-email"
+
+input#input-email
+
+2.tagname with attribute
+----------------------------
+Syntax:
+================
+tagname[attribute='value']
+
+placeholder="Password"
+
+input[placeholder='Password']
+
+
+3.tagname with classname
+---------------------------
+Syntax:
+============
+tagname.classname
+
+class="btn btn-primary"
+
+input.btn.btn-primary
+
+
+4.tagname with id,classname, attribute
+----------------------------------------
+tagname#id.classname[attribute='value']
+
+input.btn.btn-primary[value='Login']
+
+input#input-password.form-control
+===========================================================
+8.By xpath
+==============
+- path of webelement from xml/html webpage
+- xpath always identify element for DOM(document object model)
+===============HTML DOM=====================
+<html>--------root node
+<head>
+
+</head>
+
+<body>
+<input>--------------element
+<div>
+<a>
+</body>
+</html>
+=====================================
+Types of Xpath
+==================
+1.Absolute xpath(full xpath)
+==============================
+- Absolute xpath always identify element from root node
+- starts with '/'
+
+/html/body/div[2]/div/div/div/div[2]/div/form/div[2]/input
+
+2.Relative xpath(partial xpath)
+=================================
+- Relative xpath identify element from its relative property
+- starts with '//'
+
+//*[@id="input-password"]
+
+*-any tagname
+//input[@id='input-password']
+
+
+Syntax:
+===============
+//tagname[@attribute='value']
+
+==============================
+xpath with operators
+=====================
+1.and
+============
+Syntax:
+=========
+//tagname[@attribute1='value' and @attribute2='value']
+
+2.or
+==============
+Syntax:
+=========
+//tagname[@attribute1='value' or @attribute2='value']
+
+
+xpath with indexing
+==========================
+Syntax:
+==============
+(xpath)[index]
+
+position()
+Syntax:
+==============
+(xpath)[position()=index]
+
+=====================================
+
+xpath methods
+====================
+1.text()- visible text(never ignore white space)
+==========
+Syntax:
+===========
+//tagname[text()='text']
+
+2.normalize-space()- like trim() in String class-ignore white space
+========================
+Syntax:
+===========
+//tagname[normalize-space()='text']
+
+3.contains()
+===================
+id="twotabsearchtextbox"
+
+Syntax:
+==============
+//tagname[contains(@attribute,'partial value')]
+
+or
+
+//tagname[contains(text(),'partial text']
+
+4.starts-with()prefix value
+
+=====================
+Syntax:
+==============
+//tagname[starts-with(@attribute,'partial value')]
+
+or
+
+//tagname[starts-with(text(),'partial text']
+
+=============================================================
+
+xpath axies
+===================
+1.following
+=========================
+after john all tr
+
+Syntax:
+===============
+//tagname[attrubute='value']//following::tagname
+
+//td[text()='John']//following::td.....13 elements match
+//td[text()='John']//following::tr----------2 rows match
+
+
+
+2.following-sibling
+====================
+Syntax:
+===============
+//tagname[attrubute='value']//following-sibling::tagname
+//td[text()='John']//following-sibling::td
+
+3.preceding
+=====================
+before john all rows
+
+Syntax:
+===============
+//tagname[attrubute='value']//following-sibling::tagname
+
+//td[text()='John']//preceding::tr---4 match
+
+all data before john
+//td[text()='John']//preceding::td----16 match
+
+
+4.preceding-sibling
+=======================
+
+Syntax:
+===============
+//tagname[attrubute='value']//following-sibling::tagname
+
+//td[text()='John']//preceding-sibling::td------1 match
+
+
+Child
+==================
+Syntax:
+===============
+//tagname[attrubute='value']//child::tagname
+
+
+//tbody//tr[4]//child::td
+
+Parent
+==============
+Syntax:
+===============
+//tagname[attrubute='value']//parent::tagname
+
+     <tbody>-------G.parent for John
+     <tr>------parent for John
+ 
+         <td>4</td>-----preceding sibling
+
+          <td>John</td>---------------element
+
+          <td>Robinson</td>----following sibling
+
+          <td>jr5527</td>
+ 
+         <td>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a role="button" href="#myModal" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td>
+
+        </tr>
+        
+        </tbody>
+
+
+============================================================
+Dropdown automation
+=======================
+1.Dropdown based on Select tag
+==============================
+
+Selenium provides Select class
+Select sc=new Select(dropdown ele address);
+
+1.isMultiple()
+
+single selection
+=====================
+selectByIndex(int)
+selectByValue(string)
+selectByVisibleText(string)
+
+get all the options
+=========================
+getOptions()- return List<WebElement>
+
+
+
+
+
+2.Bootstrap/Javascript 
+=====================
+
+=======================================
+Multiple Windows in selenium
+
+Alert handling
+
+Frame handling
+
+Actions class-Mouse operation
+
+Framework
+================
+1.TestNG
+
+2.Cucumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
