@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import com.Generics.Utility;
+
 public class AmazonDropdownDemo
 {
   @Test
@@ -22,6 +24,12 @@ public class AmazonDropdownDemo
 	  
 	  	WebElement dropdownele=driver.findElement(By.id("searchDropdownBox"));
 	  	
+	  	Utility.selectBasedDropDown(dropdownele,"Video Games");
+	  	
+	  	
+	  	
+	  	
+	  	/*
 	  	//select class object
 	  	Select dd=new Select(dropdownele);
 	  	
@@ -56,7 +64,7 @@ public class AmazonDropdownDemo
 	  		}
 	  	}
 	  	
-	  	
+	  	*/
 	  	
 	  	
   }

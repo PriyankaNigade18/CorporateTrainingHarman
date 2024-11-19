@@ -488,24 +488,133 @@ get all the options
 getOptions()- return List<WebElement>
 
 
-
-
-
 2.Bootstrap/Javascript 
 =====================
+xpath
 
+Automate Redbus dropdown
+Automate Gibibo application both dropdown
 =======================================
 Multiple Windows in selenium
+==========================
+-getWindowHandle()
+-getWindowHandles()
+-switchTo()
 
+Selenium 4 -newWindow()
+=========================
+newTab
+
+newWindow
+
+WebDriver driver2=driver.switchTo().newWindow(WindowType.TAB);
+
+
+====================================================================
 Alert handling
+===================
+Selenium supports Alert interface to handle alerts
 
+Types
+===========
+1.Simple alert---Ok
+2.confirmation alert--->ok and cancel
+3.Prompt based alert--->sending data
+
+1.accept(): Ok
+2.dismiss(): cancel
+4.getText(): to get the text of the alert
+5.sendKeys(): to send data
+
+Basic Authentication popup
+=================================
+https://username:password@the-internet.herokuapp.com/basic_auth
+=================================================================
 Frame handling
+======================
+<frame> or <iframe>
 
+1.driver.switchTo().frame(index)
+2.driver.switchTo().frame(id/name)
+3.driver.switchTo().frame(frame WebElement)
+4.parentFrame()
+
+defaultContent()
+===============================================
 Actions class-Mouse operation
+===================================
+done
+
+JavascriptExecutor interface
+=================================
+Scroll
+refresh
+title
+click
+
+ExplicitWait
+================
 
 Framework
 ================
 1.TestNG
+
+priority
+invocationCount
+description
+dependsOnMethod
+=====================
+How to ignore any test execution
+===================================
+1.using argument enabled=false
+2.using testng.xml file
+
+Assertion in Testng
+=========================
+validate current state of application
+1.HardAssertion- Assert class
+2.SoftAssertion- SoftAssert class
+
+
+Xml file
+==============
+Pass test data from xml
+=================
+	1.@parameters
+parallel execution
+grouping
+Mthods
+create test suite
+
+
+Test Data/Properties
+=======================
+1.@Parameters
+2.Properties File
+
+Annotations(Rule)
+====================
+
+Preconditions
+@Before
+
+Testcase
+
+postcondition
+@After
+
+How to implement Object repository in Seleium
+==================================================
+1.Properties file
+
+2.Page Objet Model
+
+
+
+
+
+
+
 
 2.Cucumber
 

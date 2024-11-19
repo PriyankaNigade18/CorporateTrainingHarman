@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-18T17:19:03 IST" name="Default suite" finished-at="2024-11-18T17:19:14 IST" duration-ms="11142">
+  <suite started-at="2024-11-19T17:19:10 IST" name="Default suite" finished-at="2024-11-19T17:19:15 IST" duration-ms="5639">
     <groups>
     </groups>
-    <test started-at="2024-11-18T17:19:03 IST" name="Default test" finished-at="2024-11-18T17:19:14 IST" duration-ms="11142">
-      <class name="com.WebElementHandling.AmazonDropdownDemo">
-        <test-method signature="validateTitle()[pri:0, instance:com.WebElementHandling.AmazonDropdownDemo@7205765b]" started-at="2024-11-18T17:19:03 IST" name="validateTitle" finished-at="2024-11-18T17:19:14 IST" duration-ms="11093" status="PASS">
+    <test started-at="2024-11-19T17:19:10 IST" name="Default test" finished-at="2024-11-19T17:19:15 IST" duration-ms="5639">
+      <class name="com.TestNG.TestDataReading.HrmDataPassingusingPropertiesfile">
+        <test-method signature="f()[pri:0, instance:com.TestNG.TestDataReading.HrmDataPassingusingPropertiesfile@6283d8b8]" started-at="2024-11-19T17:19:10 IST" name="f" finished-at="2024-11-19T17:19:15 IST" duration-ms="5594" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateTitle -->
-      </class> <!-- com.WebElementHandling.AmazonDropdownDemo -->
+        </test-method> <!-- f -->
+      </class> <!-- com.TestNG.TestDataReading.HrmDataPassingusingPropertiesfile -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
