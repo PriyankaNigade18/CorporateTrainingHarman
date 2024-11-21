@@ -18,3 +18,28 @@ https://maven.apache.org/guides/index.html
 1.clean: delete all everything from target folder
 2.test : test execution
 3.install: install + execution
+
+
+
+clone and pull
+===================
+create folder
+git init
+git clone repo address
+git pull origin master
+git branch -a
+git checkout framework
+
+
+
+Todays topics:
+=============
+Reports
+parallel execution
+
+Cucumber
+
+
+REstAssured
+
+
