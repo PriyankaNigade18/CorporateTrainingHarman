@@ -1,17 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-11-19T17:19:10 IST" name="Default suite" finished-at="2024-11-19T17:19:15 IST" duration-ms="5639">
+  <suite started-at="2024-11-21T14:06:05 IST" name="Suite" finished-at="2024-11-21T14:06:12 IST" duration-ms="7273">
     <groups>
     </groups>
-    <test started-at="2024-11-19T17:19:10 IST" name="Default test" finished-at="2024-11-19T17:19:15 IST" duration-ms="5639">
-      <class name="com.TestNG.TestDataReading.HrmDataPassingusingPropertiesfile">
-        <test-method signature="f()[pri:0, instance:com.TestNG.TestDataReading.HrmDataPassingusingPropertiesfile@6283d8b8]" started-at="2024-11-19T17:19:10 IST" name="f" finished-at="2024-11-19T17:19:15 IST" duration-ms="5594" status="PASS">
+    <test started-at="2024-11-21T14:06:05 IST" name="Test" finished-at="2024-11-21T14:06:09 IST" duration-ms="4432">
+      <class name="com.TestNG.ParallelExecution.CrossBrowserTest">
+        <test-method signature="testDifferentBrowser(java.lang.String)[pri:0, instance:com.TestNG.ParallelExecution.CrossBrowserTest@342c38f8]" started-at="2024-11-21T14:06:05 IST" name="testDifferentBrowser" finished-at="2024-11-21T14:06:09 IST" duration-ms="4378" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
-      </class> <!-- com.TestNG.TestDataReading.HrmDataPassingusingPropertiesfile -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- testDifferentBrowser -->
+      </class> <!-- com.TestNG.ParallelExecution.CrossBrowserTest -->
+    </test> <!-- Test -->
+    <test started-at="2024-11-21T14:06:05 IST" name="Test2" finished-at="2024-11-21T14:06:11 IST" duration-ms="6174">
+      <class name="com.TestNG.ParallelExecution.CrossBrowserTest">
+        <test-method signature="testDifferentBrowser(java.lang.String)[pri:0, instance:com.TestNG.ParallelExecution.CrossBrowserTest@7b36aa0c]" started-at="2024-11-21T14:06:05 IST" name="testDifferentBrowser" finished-at="2024-11-21T14:06:11 IST" duration-ms="6127" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDifferentBrowser -->
+      </class> <!-- com.TestNG.ParallelExecution.CrossBrowserTest -->
+    </test> <!-- Test2 -->
+    <test started-at="2024-11-21T14:06:05 IST" name="Test3" finished-at="2024-11-21T14:06:12 IST" duration-ms="7273">
+      <class name="com.TestNG.ParallelExecution.CrossBrowserTest">
+        <test-method signature="testDifferentBrowser(java.lang.String)[pri:0, instance:com.TestNG.ParallelExecution.CrossBrowserTest@5677323c]" started-at="2024-11-21T14:06:05 IST" name="testDifferentBrowser" finished-at="2024-11-21T14:06:12 IST" duration-ms="7224" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDifferentBrowser -->
+      </class> <!-- com.TestNG.ParallelExecution.CrossBrowserTest -->
+    </test> <!-- Test3 -->
+  </suite> <!-- Suite -->
 </testng-results>

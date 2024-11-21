@@ -3,11 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.TestNG.TestDataReading.DataPassingUsingxml">
+      <class name="com.TestNG.TestListeners.CRMApplication">
         <methods>
-          <include name="loginTest"/>
+          <include name="tearDown"/>
+          <include name="validateSignIn"/>
+          <include name="getAppUrl"/>
+          <include name="setUp"/>
+          <include name="getAppTitle"/>
         </methods>
-      </class> <!-- com.TestNG.TestDataReading.DataPassingUsingxml -->
+      </class> <!-- com.TestNG.TestListeners.CRMApplication -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

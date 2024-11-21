@@ -11,18 +11,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import com.Generics.Utility;
+
 public class RightClickAction {
   @Test
   public void testRightClick()
   {
 	  WebDriver driver=new ChromeDriver();
 	  driver.get("https://demo.guru99.com/test/simple_context_menu.html");
-	  
+	  Utility.getScreenshot(driver,"Homepage");
 	  WebElement ele=driver.findElement(By.xpath("//span[text()='right click me']"));
 	  
 	  //right click
 	  Actions act=new Actions(driver);
 	  act.contextClick(ele).perform();
+	  Utility.getScreenshot(driver,"clickAction");
 	  
 	  //all menu
 	  List<WebElement> allOptions=driver.findElements(By.xpath("(//ul)[3]//li//span"));
