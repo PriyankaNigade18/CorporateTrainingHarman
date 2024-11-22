@@ -1,0 +1,244 @@
+TestNG Listners
+=================
+TestNG provides the Listeners which listens to every event that occurs in a selenium/Appium code.
+Listeners are activated either before the test or after the test case. It is an interface that modifies the TestNG behavior.
+
+
+Listeners are implemented by the ITestListener interface.
+ An ITestListener interface has the following methods:
+
+onTestStart(): An onTestStart() is invoked only when any test method gets started.
+
+onTestSuccess(): An onTestSuccess() method is executed on the success of a test method.
+
+onTestFailure(): An onTestFailure() method is invoked when test method fails.
+
+onTestSkipped(): An onTestSkipped() run only when any test method has been skipped.
+
+onTestFailedButWithinSuccessPercentage(): This method is invoked each time when the test method fails but within success percentage.
+
+onStart(): An onStart() method is executed on the start of any test method.
+
+onFinish(): An onFinish() is invoked when any test case finishes its execution.
+
+=======================================================================
+
+Simple Extent Report
+-----------------------
+//create instance
+	  ExtentReports report = new ExtentReports();
+	  //to provide path of report
+	  ExtentSparkReporter spark = new ExtentSparkReporter("./"+"/reports/Spark.html");
+	  //To set some configurations
+	  spark.config().setReportName("AutomationReport");
+	  spark.config().setDocumentTitle("Sprint 1 Automation Report");
+	  spark.config().setTheme(Theme.DARK);
+	  //attach spark report to extent report
+	  report.attachReporter(spark);
+	  
+	  //create test
+	  ExtentTest test=report.createTest("Login Test");
+	  //set logs
+	  test.pass("LoginTest Pass");
+	  test.fail("Test is fail");
+	  test.skip("Test is skip");
+	  
+	  report.flush();
+	  
+======================================================================
+
+
+
+dependency
+============
+		<dependency>
+		<groupId>com.aventstack</groupId>
+		<artifactId>extentreports</artifactId>
+		<version>5.0.8</version>
+		</dependency>
+
+Create a package listners in project and create two classes ExtentManager and ExtentTestNGITestListener 
+
+
+public class ExtentManager 
+{
+public static ExtentReports extent;
+	
+	
+	public static ExtentReports getInstance()
+	{
+		
+		if(extent==null)
+		{
+			extent=createInstance();
+			return extent;
+		}
+		else 
+		{
+			return extent;
+		}
+		
+	}
+	
+
+	public static ExtentReports createInstance()
+	{
+		
+		ExtentSparkReporter sparkReporter=new ExtentSparkReporter(System.getProperty("user.dir")+"/Reports/Automation.html");
+		sparkReporter.config().setTheme(Theme.DARK);
+		sparkReporter.config().setReportName("NewTEstReport");
+		sparkReporter.config().setDocumentTitle("Sprint 1 Report");
+	
+		ExtentReports extent=new ExtentReports();
+		extent.attachReporter(sparkReporter);
+		
+		return extent;
+	}
+	
+}
+
+
+==========================================================
+public class ExtentTestNGITestListener extends DataDrivenTest implements ITestListener {
+	/*
+	 * ThreadLocal is a class in java.lang package provides a way to store values in per thread basis
+	 * It create separate instance of the value for each thread allowing each thread to have its own copy of the value
+	 * without interfering with other threads.
+	 * 
+	 * It is useful for storing values that are specific to a single thread such as transaction or request specific data
+	 * ThreadLocal provides a simple and efficient way to store thread local variables without having to pass them as method arguments or store them as instance variables. 
+	 */
+	ExtentReports extent=ExtentManager.getInstance();
+	
+	ThreadLocal<ExtentTest> parentTest=new ThreadLocal<ExtentTest>();
+	
+	
+	public void onTestStart(ITestResult result) 
+	{
+		ExtentTest extentTest=extent.createTest(result.getMethod().getMethodName());
+	
+		parentTest.set(extentTest);
+	}
+	
+	
+	public void onTestSuccess(ITestResult result) {
+	   
+		
+		
+		parentTest.get().pass("Test Passed");
+String pass=result.getName();
+		captureScreenshot(result.getTestClass().getRealClass().getSimpleName()+"_"+pass+"_"+timestamp()+".png");
+	  }
+	
+	
+	public void onTestFailure(ITestResult result) 
+	{
+		
+		
+		parentTest.get().fail("Test Failed "+result.getThrowable().getMessage());
+String fail=result.getName();
+		captureScreenshot(result.getTestClass().getRealClass().getSimpleName()+"_"+fail+"_"+timestamp()+".png");
+		
+	   
+	  }
+	
+private String timestamp()
+	{
+		return new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+	}
+	
+	public void onTestSkipped(ITestResult result) {
+		parentTest.get().skip("Test Skipped "+result.getThrowable().getMessage());
+	   
+	  }
+	
+	
+	public  void onFinish(ITestContext context) {
+		extent.flush();
+	    
+	  }
+}
+
+
+
+
+create new package & classes with test cases
+Create suite of that package
+==============================================
+
+
+In suite call listners
+<suite>  
+
+<listeners>
+<listener class-name="listners.ExtentTestNGITestListener"></listener>
+</listeners>
+
+<test>
+
+
+
+
+
+
+ public void captureScreenshot(Object fileName)
+		{
+			TakesScreenshot ts=(TakesScreenshot)driver;
+			File src=ts.getScreenshotAs(OutputType.FILE);
+			File dest=new File(System.getProperty("user.dir")+"//Screenshots//"+fileName);
+			try {
+				FileHandler.copy(src, dest);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("ScreenShot captured!");
+		}
+
+
+
+
+
+====================================================================
+Allure Reports
+====================
+
+https://allurereport.org/docs/how-it-works/
+1. Create a maven project add selenium testing and allure testing dependency
+2. Download allure.zip for windows from official website
+https://github.com/allure-framework/allure2/releases/tag/2.29.0
+3. set the path in environment variables
+4. check the version allure --version
+5. create test case with .xml file run and refresh the project
+	one allure-results folder will create in project directory
+6.to check html report
+use cmd : allure serve path of allure-results folder 
+then check the report
+
+
+Allure Annotations
+===================
+@Description
+@Severity(SeverityLevel.MINOR)
+@Epic
+@Story
+@Feature
+@Step
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

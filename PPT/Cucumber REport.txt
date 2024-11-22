@@ -1,0 +1,29 @@
+plugin={"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+
+
+      <dependency>
+		<groupId>tech.grasshopper</groupId>
+		<artifactId>extentreports-cucumber7-adapter</artifactId>
+		<version>1.12.0</version>
+      </dependency>
+
+
+
+create file extent.properties under reources
+
+extent.reporter.spark.out=HtmlReport/SparkReport/Spark.html
+
+screenshot.dir=Screenshots/
+screenshot.rel.path=../Screenshots/
+
+extent.reporter.spark.start=true
+extent.reporter.pdf.start=true
+extent.reporter.pdf.out=HtmlReport/PdfReport/ExtentPdf.pdf
+
+extent.reporter.html.start=true
+extent.reporter.html.out=test-output/HtmlReport/ExtentHtml.html
+
+basefolder.name=HtmlReport
+basefolder.datetimepattern=d-MMM-YY HH-mm-ss
+
+systeminfo.os=windows
